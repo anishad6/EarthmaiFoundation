@@ -1,0 +1,49 @@
+
+
+{% extends 'baseheader.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+<!-- <h2>abhi</h2> -->
+
+<div class="image-gallery-container container my-5">
+    <div class="text-center mb-4">
+        <h2>Gallery</h2>
+    </div>
+    <div class="row">
+        {% for image in images %}
+        <div class="col-sm-6 col-md-4 mb-4">
+            <div class="gallery-card">
+                <img src="{{ image.imagepath.url }}" alt="{{ image.title }}" class="responsive-gallery-img"
+                    data-toggle="modal" data-target="#imageModal">
+                <div class="image-details">
+                    <p>{{ image.title }}</p>
+                    <p>{{ image.date }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const galleryImages = document.querySelectorAll(".responsive-gallery-img");
+    
+        galleryImages.forEach(img => {
+            img.addEventListener("click", function () {
+                this.classList.toggle("enlarged");
+            });
+        });
+    });
+    </script>
+<!-- <div id="gallery" class="container-fluid" style= "height: 100vh; margin-top: 200px;">
+    {% for image in images %}
+        <img src="{{ image.imagepath.url }}" alt="{ image.title }" class="img-responsive" style="height: 30vb; width: 30vb; margin-top: 200px;">
+    {% endfor %}
+</div> -->
+<!-- <h2>abhi2</h2> -->
+
+
+{% endblock 'main' %}

@@ -1,0 +1,107 @@
+{% load static %}
+{% include "header.html" %}
+{% block 'main' %}
+
+<div class="donation-carousel mt-5">
+    <div class="carousel-wrapper">
+        <img src="{% static 'images/Tree/IMG-20210803-WA0010.jpg' %}" alt="Donation Banner" class="carousel-image">
+        <div class="carousel-overlay">
+            <h1 class="carousel-quote">One small donation can make a world of difference</h1>
+        </div>
+    </div>
+</div>
+
+<div class="donation-container container">
+    <h1 class="donation-title text-center">Donation</h1>
+    <hr>
+    <div class="row justify-content-center">
+        <!-- Donation Form Section -->
+        <div class="col-md-6 donation-form-container">
+            <h3 class="form-header">enter the amount you'd like to contribute to make a difference</h3>
+            <form id="payment-form" method="POST" action="{% url 'process_payment' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="amount">Amount (INR):</label>
+                    <input type="number" class="form-control" id="amount" name="amount" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea class="form-control" id="message" name="message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Proceed to Pay</button>
+            </form>
+        </div>
+
+        <!-- Bank Details Section -->
+        <div class="col-md-5 offset-md-1 bank-details-container">
+            <h2 class="bank-header">You can also transfer your contribution to SAYTREES' bank account.</h2>
+            <div class="bank-details">
+                <p><strong>SAYTREES ENVIRONMENTAL TRUST</strong></p>
+                <p>Current Account</p>
+                <p><strong>Account #: </strong>34803899434</p>
+                <p><strong>Bank Name: </strong>State Bank Of India, Hosur Road Branch, Bangalore - 560100</p>
+                <p><strong>IFSC Code: </strong>SBIN0010514</p>
+                <p><strong>MICR Code: </strong>560002108</p>
+                <hr>
+                <p>Write to us at <a href="mailto:info@saytrees.org" class="email-link">info@saytrees.org</a> after transferring your contribution.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container text-center">
+    <div class="row">
+        <div class="col-4 " style="margin-top: 100px;">
+            <h3>Enter the amount you want to donate:</h3>
+            <form id="payment-form" method="POST" action="{% url 'process_payment' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="amount">Amount (INR):</label>
+                    <input type="number" class="form-control" id="amount" name="amount" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea class="form-control" id="message" name="message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Proceed to Pay</button>
+            </form>
+        </div>
+        <div class="col-6 offset-md-2" style="margin-top: 100px;">
+            <div class="col-md-8 col-lg-6 bank-details-container">
+                <h2 class="bank-details-header">You can also transfer your contribution to SAYTREES' bank account.</h2>
+                <div class="bank-details">
+                    <p><strong>SAYTREES ENVIRONMENTAL TRUST</strong></p>
+                    <p>Current Account</p>
+                    <p><strong>Account #: </strong>34803899434</p>
+                    <p><strong>Bank Name: </strong>State Bank Of India, Hosur Road Branch, Bangalore - 560100</p>
+                    <p><strong>IFSC Code: </strong>SBIN0010514</p>
+                    <p><strong>MICR Code: </strong>560002108</p>
+                    <hr>
+                    <p>
+                        Write to us at <a href="mailto:info@saytrees.org" class="email-link">info@saytrees.org</a> after
+                        transferring your contribution.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- <div class="container" style="margin-top: 100px;">
+    <h3>Enter the amount you want to donate:</h3>
+    <form id="payment-form" method="POST" action="{% url 'process_payment' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="amount">Amount (INR):</label>
+            <input type="number" class="form-control" id="amount" name="amount" min="1" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea class="form-control" id="message" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Proceed to Pay</button>
+    </form>
+</div> -->
+
+{% endblock 'main' %}
+{% include "footer.html" %}

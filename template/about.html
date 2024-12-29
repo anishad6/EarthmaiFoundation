@@ -1,0 +1,81 @@
+{% load static  %}
+{% include "header.html" %}
+{% block 'main' %}
+
+
+<!-- main containt here  -->
+
+<!-- <h2 style="margin-top: 200px;">This is about section </h2> -->
+
+<div class="row " style="margin-top: 56px;" >
+    <div class="col-md-12">
+        <!-- <div class="img">
+       
+            <img src="{% static 'images/beach/Powai One.jpg' %}" alt="" style="width: 100%; height: 70vh;">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Saving Lives Starts with You</h1>
+                <p>Your contribution can change someone's future.</p>
+                <a href="#blooddonate" class="btn btn-primary">Donate Now</a>
+            </div>
+           
+        </div> -->
+        <div class="carousel-item active">
+            <img src="{% static 'images/beach/Powai One.jpg' %}" alt="" style="width: 100%; height: 70vh;">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>About Us</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="team-section">
+    <div class="container">
+        <h1><span>Meet Our</span></h1>
+        <h1>Team</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for card in cards %}
+                <div class="col">
+                    <div class="card custom-card">
+                        <img src="{{ card.imagepath.url }}" class="card-img-top" alt="{{ card.title }}">
+                        <div class="card-body">
+                            <h5 class="card-text">{{ card.name }}</h5>
+                            <p class="card-title">{{ card.title }}</p>
+                            <p class="card-text">{{ card.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="advisors-section bg2-pattern">
+    <div class="container">
+        <div class="row text-center">
+            <span class="section-subtitle">Our</span>
+            <h3 class="section-title">Advisors</h3>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for advisor in advisors %}
+                <div class="col">
+                    <div class="card custom-card">
+                        <img src="{{ advisor.imagepath.url }}" class="card-img-top" alt="{{ advisor.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ advisor.name }}</h5>
+                            <p class="card-text">{{ advisor.designation }}</p>
+                            <p class="card-text">{{ advisor.detail }}</p>
+                            <p class="card-text">{{ advisor.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock 'main' %}
+
+{% include 'footer.html'%}
+
+

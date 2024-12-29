@@ -1,0 +1,151 @@
+{% load static  %}
+{% include "header.html" %}
+{% block 'main' %}
+
+
+<div class="carousel-section row" style="margin-top: 56px;">
+  <div class="col-12">
+      <div class="carousel-item active">
+          <img src="{% static 'images/Tree/img2.jpg' %}" alt="Carousel Image" class="carousel-img">
+          <div class="carousel-caption d-none d-md-block">
+              <h1 class="carousel-title">Join us to make a difference</h1>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="volunteer-section row justify-content-center">
+  <div class="volunteer-card col-md-8 col-lg-6">
+      <h1 class="text-center volunteer-header mb-4">Join Us in Our Journey</h1>
+      <p class="text-center volunteer-description">Register with us, and we’ll add you to our mailing list to help make the world a better place.</p>
+      <form action="" method="POST">
+          {% csrf_token %}
+          
+          {% if error %}
+              <div class="alert alert-danger">
+                  {{ error }}
+              </div>
+          {% endif %}
+          <div class="form-group mb-3">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" class="form-control" required>
+          </div>
+          <div class="form-group mb-3">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+          </div>
+          <div class="form-group mb-3">
+              <label for="phone">Phone:</label>
+              <input type="text" id="phone" name="phone" class="form-control" required>
+          </div>
+          <div class="form-group mb-3">
+              <label for="message">Message:</label>
+              <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-volunteer w-100">Submit</button>
+      </form>
+  </div>
+</div>
+
+
+
+
+<!-- <div class="row " style="margin-top: 56px;" >
+    <div class="col-md-12">
+        <div class="carousel-item active">
+            <img src="{% static 'images/Tree/img2.jpg' %}" alt="" style="width: 100%; height: 70vh;">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Join us to make a difference</h1>
+            </div>
+        </div>
+      </div>
+</div>
+       -->
+ 
+      <!-- <div class="volunteer-container row justify-content-center" style="margin-top: 100px;">
+        <div class="volunteer-form col-md-8 col-lg-6 shadow p-4 rounded">
+            <h1 class="text-center mb-4">Join Us in Our Journey</h1>
+            <p class="text-center">Register with us, and we’ll add you to our mailing list to help make the world a better place.</p>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group mb-3">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" class="form-control" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
+            </form>
+        </div>
+      </div> -->
+
+
+
+      <!-- <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <form class="f1 shadow p-3 mb-5 bg-body rounded" action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <h2 class="text-center">Registration</h2>
+            {% if error %}
+            <div class="alert alert-danger">
+              {{ error }}   
+            </div>
+            {% endif %}
+  
+            <div class="di1 mb-3">
+              <label for="basic-addon1" class="form-label">Username:</label> 
+              <input type="text" class="form-control" id="basic-addon1" aria-describedby="addon-wrapping" placeholder="Enter Username" name="username" required>
+            </div>
+            <div class="di1 mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email Id:</label> 
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter a valid email address" name="email" required>
+            </div>
+            
+           
+            <div class="di1 text-center">
+              <button type="submit" class="btn btn-danger w-100">Register</button>
+            </div><br>
+           
+          </form>
+        </div>
+      </div> -->
+   
+ 
+    <!-- <div class="row justify-content-center col-md-6 col-lg-5" style="margin-top:100px ">
+
+        <div class="form-container f1 shadow p-3 mb-5 bg-body rounded">
+            <h1>Join us in our Journey to make the world a better place
+              Register with us and we shall add you to our mailing list.</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+        
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+        
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" required>
+        
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+        
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </div> -->
+
+  
+{% endblock 'main' %}
+{% include 'footer.html'%}

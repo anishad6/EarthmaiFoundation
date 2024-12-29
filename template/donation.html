@@ -1,0 +1,20 @@
+
+{% extends 'baseheader.html' %}
+
+{% block 'main' %}
+<div class="box col-4">
+    <h3 class="bg-warning">Customer Details</h3>
+    <h4>Name: {{ user.first_name }} {{ user.last_name }}</h4>
+    <h4>Email: {{ user.email }}</h4>
+    <h4>Mobile: {{profile.mobile}}</h4>
+    <h4>Address: {{profile.address}}</h4>
+    <br>
+    <h3 class="bg-warning">Summary</h3>
+       <h4>Items Count: {{ count }}</h4>
+       <h4>Total Amount: {{ total }}</h4>
+       <br>
+       <a class="btn btn-warning" href="makepayment">Make Payment</a>
+       <a class="btn btn-warning" href="/mycart">Back To Cart</a>
+    
+ </div>
+ {% endblock 'main' %}

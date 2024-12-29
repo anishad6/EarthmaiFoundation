@@ -1,0 +1,56 @@
+
+
+
+{% load static  %}
+{% include "header.html" %}
+{% block 'main' %}
+
+
+<div class="row " style="margin-top: 56px;" >
+    <div class="col-md-12">
+        <div class="carousel-item active">
+            <img src="{% static 'images/social/IMG-20211017-WA0021.jpg' %}" alt="" style="width: 100%; height: 85vh;">
+            <!-- <img src="{% static 'images/beach/Powai One.jpg' %}" alt="" style="width: 100%; height: 70vh;"> -->
+            <div class="carousel-caption getInvolve d-none d-md-block">
+                <h1>get involved with us </h1>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="get-involved-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="get-involved-title">Get Involved</h1>
+            <p class="get-involved-lead">There are many ways you can support our cause. Whether through volunteering, donating, or spreading the word, your help makes a real difference.</p>
+        </div>
+        <div class="row">
+            {% for option in involvement_options %}
+                <div class="col-md-6 col-lg-3 d-flex justify-content-center mb-4">
+                    <div class="involved-card card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ option.title }}</h5>
+                            <p class="card-text">{{ option.description }}</p>
+                            <a href="{{ option.link }}" class="btn btn-custom btn-primary">{{ option.button_text }}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+ <!-- Why Get Involved Section -->
+ <section class="bg-light py-5">
+    <div class="container text-center">
+        <h2>Why Get Involved?</h2>
+        <p>Getting involved with our NGO is more than just an opportunity to contribute to society. It’s a chance to be part of a movement that cares deeply about our environment and communities. Together, we can create lasting change.</p>
+    </div>
+</section>
+
+<!-- main containt here  -->
+
+{% endblock 'main' %}
+{% include 'footer.html'%}
+
+

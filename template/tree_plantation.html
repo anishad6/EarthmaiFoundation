@@ -1,0 +1,105 @@
+
+
+{% extends 'baseheader.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+<!-- <h2>abhi</h2> -->
+<style>
+    /* Styling for the tree plantation section */
+body{
+    margin: auto 10px;
+
+}
+.tree-plantation-info {
+    background-color: #e4f9e4; 
+    padding: 30px 20px;  
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 40px; 
+    text-align: center;
+}
+
+/* Styling for the heading */
+.tree-heading {
+    color: #2c6e49; 
+    font-family: 'Arial', sans-serif; 
+    font-size: 36px; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    margin-bottom: 20px;
+
+}
+
+/* Styling for the paragraph text */
+.tree-description {
+    font-size: 16px; 
+    color: #333; 
+    line-height: 1.8; 
+    font-family: 'Georgia', serif;
+    display: inline-block; 
+    text-align: center; 
+    margin-left: auto; 
+    margin-right: auto; 
+    max-width: 800px; 
+}
+
+</style>
+
+<div class="tree-plantation-info container-fluid my-4">
+    <div class="text-center">
+        <h2>Tree Plantation Initiative</h2>
+        <p class="lead">
+            Our tree plantation initiative focuses on improving the environment and combating climate change by planting trees in urban and rural areas. Join us in making a positive impact by helping us restore nature and ensure a healthier planet for future generations.
+            <br><br>
+            Every year, deforestation contributes to the loss of biodiversity, increases carbon emissions, and disrupts ecosystems. By taking part in tree plantation efforts, we help reduce carbon footprints, restore habitats for wildlife, and enhance the quality of air and soil.
+            <br><br>
+            Tree planting goes beyond environmental benefits—it also encourages community involvement and fosters a sense of responsibility toward our planet. Together, we can help rebuild forests, combat global warming, and contribute to a more sustainable world.
+            <br><br>
+            Whether you're an individual, a group, or an organization, every effort counts. Let's unite to plant more trees, protect ecosystems, and create a greener, healthier environment for all!
+        </p>
+    </div>
+</div>
+
+
+<div class="image-gallery-container container my-5">
+    <!-- <div class="text-center mb-5" style="margin-top: 100px;">
+        <h2>Gallery</h2>
+    </div> -->
+    <div class="row">
+        {% for image in images %}
+            <div class="col-sm-6 col-md-4 mb-4">
+                <div class="gallery-card">
+                    <img src="{{ image.imagepath.url }}" alt="{{ image.title }}" class="responsive-gallery-img" data-toggle="modal" data-target="#imageModal">
+                    <div class="image-details">
+                        <p>{{ image.title }}</p>
+                        <p>{{ image.date }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const galleryImages = document.querySelectorAll(".responsive-gallery-img");
+    
+        galleryImages.forEach(img => {
+            img.addEventListener("click", function () {
+                this.classList.toggle("enlarged");
+            });
+        });
+    });
+    </script>
+    
+
+    
+    
+
+
+
+{% endblock 'main' %}

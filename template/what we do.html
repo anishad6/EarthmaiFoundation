@@ -1,0 +1,21 @@
+{% load static %}
+<!-- what we doo  -->
+<!-- <div class="row4"> -->
+    <section class="section-welcome p-t-10 p-b-10">
+                    {% for initiative in initiatives %}
+                    <!-- <div class="col-md-3 text-center"> -->
+                        <div class="card shadow-sm">
+                            <img src="{{ initiative.imagepath.url }}" style="width: 255px; height: 229px;" class="card-img-top" alt="{{ initiative.title }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ initiative.title }}</h5>
+                                <p class="card-text">{{ initiative.description }}</p>
+                                <a href="{{ initiative.link }}" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                    {% endfor %}
+                </div>
+               
+                 
+    </section>
+

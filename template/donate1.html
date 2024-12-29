@@ -1,0 +1,33 @@
+
+
+{%  extends 'baseheader.html'%}
+{% load static %}
+
+{% block 'main' %}
+<form method="POST" action="{% url 'donate' %}" class="col-md-4 mx-auto mt-5 shadow rounded p-2">
+    {% csrf_token %}
+   
+    <h3>Donation</h3>
+    <div class="form-group">
+      <label for="donateAmount">Amount:</label>
+      <input id="donateAmount" type="number" class="form-control" name="amount" required>
+    </div>
+    <div class="form-group">
+      <label for="donateEmail">Email:</label>
+      <input id="donateEmail" type="email" class="form-control" value="{{ user.email }}" readonly>
+    </div>
+    <div class="form-group">
+      <label for="donateFname">First Name:</label>
+      <input id="donateFname" type="text" class="form-control" name="firstname" readonly value="{{ user.first_name }}">    </div>
+    <div class="form-group">
+      <label for="donateLname">Last Name:</label>
+      <input id="donateLname" type="text" class="form-control" name="lastname" readonly value="{{ user.last_name }}">
+    </div>
+    <div class="form-group">
+      <label for="donateMessage">Message:</label>
+      <textarea id="donateMessage" class="form-control" rows="3" name="message" required></textarea>
+    </div>
+    <button type="submit" class="mt-2 btn btn-warning">Confirm Donation</button>
+  </form>
+  
+ {% endblock 'main' %}

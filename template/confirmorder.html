@@ -1,0 +1,24 @@
+{% extends 'baseheader.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+<div class="box col-8">
+    <h3 class="bg-warning">Products</h3>
+    {% for cart in cartlist %}
+    <div class="row m-2">
+        <div class="col-6">
+            <h3>{{ cart.user.first_name }}</h3>
+            <strong>Rs. {{ cart.amount }}</strong><br>
+            <p>{{ cart.message }}</p>
+        </div>
+    </div>
+    {% endfor %}
+    <h4>Total Amount: {{ total }}</h4>
+    <a class="btn btn-warning" href="{% url 'makepayment' %}">Make Payment</a>
+    <a class="btn btn-warning" href="{% url 'donate' %}">Back to Donate</a>
+    
+    
+ </div>
+
+ {% endblock 'main' %}

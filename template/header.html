@@ -1,0 +1,137 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Earthmamy foundation</title>
+        <!-- css link  -->
+        
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+       
+
+        <!-- boostrap link  -->
+        <link rel="stylesheet" href="{% static 'boostrap/bootstrap.min.css' %}">
+
+        
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700
+        &family=Open+Sans:wght@300;600&family=Lora:wght@400;500
+        &family=Poppins:wght@400;700&family=Montserrat:wght@300;500
+        &family=Raleway:wght@400;700&family=Oswald:wght@400
+        &family=Merriweather:wght@400;700&family=Playfair+Display:wght@400;700
+        &family=Source+Sans+Pro:wght@400&display=swap" rel="stylesheet">
+
+        <!-- Font Awesome for Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+            
+</head>
+
+<body>
+    {% if messages %}
+    {% for message in messages %}
+    <script>
+        setTimeout(function() {
+            alert('{{ message }}');
+        }, 0); // Show the alert immediately
+
+        setTimeout(function() {
+            const alerts = document.querySelectorAll(".alert-popup");
+            alerts.forEach(alert => alert.remove());
+        }, 2000); // Remove the alert after 5 seconds
+    </script>
+    {% endfor %}
+{% endif %}
+
+    <!-- ########## Header section ############### -->
+   
+    <!-- ########## Header section ############### -->
+    <div class="container-fluid" style="margin: 0; padding: 0;">
+        <div class="row1">
+            <nav class="navbar navbar-expand-lg fixed-top bg-primary">
+                <div class="container-fluid">
+                    <a class="navbar-brand logo" href="{% url 'home' %}">
+                        <span class="logo-icon">&#127757;</span> <!-- Earth icon -->
+                        <span class="logo-text">Earthmai</span>
+                    </a>
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+                        <ul class="navbar-nav justify-content-center">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'get_involved' %}">GET INVOLVED</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'donate' %}">DONATE</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Projects
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/tree_plantation">Tree Plantation</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'beach_cleaning' %}">Beach Cleaning</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'social' %}">Social Works</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                       <!--  Account to the right  -->
+                       <ul class="navbar-nav ms-auto" style="margin-right: 50px;">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item welcome-message">
+                            <span class="nav-link">
+                                <i class="fas fa-user-circle"></i> Welcome, <strong>{{ user.username }}</strong>
+                            </span>
+                        </li>
+                        <li class="nav-item logout-link">
+                            <a class="nav-link" href="/logout">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user-circle"></i>
+                            </a>
+                            <ul class="dropdown-menu" style="padding-right: 35px;">
+                                <li><a class="dropdown-item" href="/register">Register</a></li>
+                                <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                    </ul>
+                       <!-- <ul class="navbar-nav ms-auto" style="margin-right: 50px;">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Use FontAwesome Login icon
+                                <i class="fas fa-user-circle"></i>
+                            </a>
+                            <ul class="dropdown-menu" style="padding-right: 35px;">
+                                {% if user.is_authenticated %}
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                                {% else %}
+                                <li><a class="dropdown-item" href="/register">Register</a></li>
+                                <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    </ul> -->
+                    
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+        
+       

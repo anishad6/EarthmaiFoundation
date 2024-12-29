@@ -1,0 +1,62 @@
+
+{% load static %}
+
+
+<div class="wrap-text-welcome">
+    <h2 class="tit3">What We Do</h2>
+    <p class="description">
+        Saytrees plants saplings and supports them to become trees. At SayTrees we have been creating urban and
+        rural forests, supporting farmers with fruit trees, rejuvenating lakes and water bodies, and installing
+        solar lamps in villages. SayTrees does all this with support from individuals and corporates that wish to
+        bring change to society under their CSR (Corporate Social Responsibility) initiatives. SayTrees is an NGO in
+        India registered under section 12A and 80G of Income Tax. SayTrees also holds the FCRA certificate to
+        receive donations from outside India.
+    </p>
+</div>
+
+<div class="row-card">
+    {% if initiatives %}
+        {% for initiative in initiatives %}
+            <div class="col-md-3 col-sm-6 text-center mb-3 p-3">
+                <div class="card shadow-sm h-100 initiative-card">
+                    <div class="image-container">
+                        <img src="{{ initiative.imagepath.url }}" class="card-img-top mx-auto rounded-circle" alt="{{ initiative.title }}">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ initiative.title }}</h5>
+                        <p class="card-text">{{ initiative.description }}</p>
+                        <a href="{{ initiative.link }}" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No initiatives found.</p>
+    {% endif %}
+</div>
+
+<!-- <div class="row-card">
+    {% if initiatives %}
+        {% for initiative in initiatives %}
+            <div class="col-md-3 col-sm-6 text-center mb-3">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ initiative.imagepath.url }}" class="card-img-top mx-auto" alt="{{ initiative.title }}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ initiative.title }}</h5>
+                        <p class="card-text">{{ initiative.description }}</p>
+                        <a href="{{ initiative.link }}" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No initiatives found.</p>
+    {% endif %}
+</div> -->
+
+
+
+
+
+
+       

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Details</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Volunteer Opportunities</h1>
+        <div class="row">
+            {% for option in options %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ option.title }}</h5>
+                        <p class="card-text">{{ option.description }}</p>
+                        <a href="{{ option.link }}" class="btn {{ option.button_class }}">{{ option.button_text }}</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>No volunteer opportunities available at the moment.</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+{% extends 'baseheader.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+<!-- <h2>abhi</h2> -->
+<style>
+  /* Styling for the beach cleaning section */
+.beach-cleaning-info {
+    background-color: #f0f8ff; /* Light blue background to resemble the beach/ocean */
+    padding: 30px 20px; /* Space around the content */
+    border-radius: 10px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 40px; /* Space after the section */
+    text-align: center; /* Center-aligns all text inside the section */
+}
+
+/* Styling for the heading */
+.beach-heading {
+    color: #2a9d8f; 
+    font-family: 'Arial', sans-serif;
+    font-size: 36px; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    margin-bottom: 20px; 
+}
+
+/* Styling for the paragraph text */
+.beach-description {
+    font-size: 16px; 
+    color: #333; 
+    line-height: 1.8; 
+    font-family: 'Georgia', serif;
+    display: inline-block; 
+    text-align: center; 
+    margin-left: auto; 
+    margin-right: auto; 
+    max-width: 800px; 
+}
+
+/* Adding some responsive design */
+@media (max-width: 767px) {
+    .beach-heading {
+        font-size: 28px; 
+    }
+
+    .beach-description {
+        font-size: 14px; 
+    }
+}
+
+
+</style>
+<div class="beach-cleaning-info container-fluid my-5">
+    <div class="text-center">
+        <h2 class="beach-heading">Beach Cleaning Initiative</h2>
+        <p class="lead beach-description">
+            Our beach cleaning initiative focuses on preserving the beauty and health of our coastal areas. Join us in 
+            making a difference by keeping our beaches clean and safe for everyone to enjoy. 
+            <br><br>
+            Every year, millions of tons of waste are dumped into oceans, and much of this waste ends up on beaches. 
+            By taking part in regular beach cleanups, we help reduce plastic pollution, protect marine life, and maintain the natural environment for future generations. 
+            <br><br>
+            Beach cleaning is not only about picking up trash—it also raises awareness about the environmental impact of waste and encourages sustainable practices. 
+            With your help, we can make our beaches cleaner, safer, and more enjoyable for locals and tourists alike.
+            <br><br>
+            Whether you're an individual, family, or organization, every effort counts. Let's unite to protect the beauty of our beaches and create a cleaner, healthier environment for all!
+        </p>
+    </div>
+</div>
+
+<div class="image-gallery-container container my-5">
+    <div class="text-center mb-4">
+        <!-- <h2>Gallery</h2> -->
+    </div>
+    <div class="row">
+        {% for image in images %}
+        <div class="col-sm-6 col-md-4 mb-4">
+            <div class="gallery-card">
+                <img src="{{ image.imagepath.url }}" alt="{{ image.title }}" class="responsive-gallery-img"
+                    data-toggle="modal" data-target="#imageModal">
+                <div class="image-details">
+                    <p>{{ image.title }}</p>
+                    <p>{{ image.date }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const galleryImages = document.querySelectorAll(".responsive-gallery-img");
+    
+        galleryImages.forEach(img => {
+            img.addEventListener("click", function () {
+                this.classList.toggle("enlarged");
+            });
+        });
+    });
+    </script>
+    
+
+
+
+
+{% endblock 'main' %}
