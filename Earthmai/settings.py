@@ -26,7 +26,13 @@ SECRET_KEY = 'django-insecure-lyr7cy34xf)bgge3ng2r5f$$+l)5sdq+rfk@!pkjxy(1us5y0^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get(
+    'ALLOWED_HOSTS',
+    'earthmaifoundation.onrender.com,localhost,127.0.0.1'
+).split(',')
+
+
+# ALLOWED_HOSTS = []
 
 
 # Application definition
