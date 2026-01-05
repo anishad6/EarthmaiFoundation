@@ -106,18 +106,32 @@ WSGI_APPLICATION = 'Earthmai.wsgi.application'
 #     }
 # }
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('earthmai'),
-        'USER': os.environ.get('earthmai_user'),
-        'PASSWORD': os.environ.get('0uu2YMhiRiGJ4PKH5gQ23LS4EeKLiRZl'),
-        'HOST': os.environ.get('dpg-d5dqhda4d50c73fdkdc0-a.oregon-postgres.render.com'),  # Typically like 'dpg-abc123.render.com'
-        # 'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME', 'earthmai'),
+        'USER': os.environ.get('DB_USER', 'earthmai_user'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', '0uu2YMhiRiGJ4PKH5gQ23LS4EeKLiRZl'),
+        'HOST': os.environ.get(
+            'DB_HOST',
+            'dpg-d5dqhda4d50c73fdkdc0-a.oregon-postgres.render.com'
+        ),
         'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ.get('earthmai'),
+#         'USER': os.environ.get('earthmai_user'),
+#         'PASSWORD': os.environ.get('0uu2YMhiRiGJ4PKH5gQ23LS4EeKLiRZl'),
+#         'HOST': os.environ.get('dpg-d5dqhda4d50c73fdkdc0-a.oregon-postgres.render.com'),  # Typically like 'dpg-abc123.render.com'
+#         # 'PORT': '5432',
+#         'PORT': os.environ.get('DB_PORT', '5432'),
+#     }
+# }
 
 
 # Password validation
