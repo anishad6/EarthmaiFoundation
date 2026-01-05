@@ -83,14 +83,26 @@ WSGI_APPLICATION = 'Earthmai.wsgi.application'
 # }
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': "earthmai",
+#         'USER': "root",
+#         'PASSWORD': "Abhishek@12345",
+#         'HOST': "localhost",
+#         'PORT': "3306"
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': "earthmai",
-        'USER': "root",
-        'PASSWORD': "Abhishek@12345",
-        'HOST': "localhost",
-        'PORT': "3306"
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('earthmai'),
+        'USER': os.environ.get('earthmai_user'),
+        'PASSWORD': os.environ.get('0uu2YMhiRiGJ4PKH5gQ23LS4EeKLiRZl'),
+        'HOST': os.environ.get('dpg-d5dqhda4d50c73fdkdc0-a.oregon-postgres.render.com'),  # Typically like 'dpg-abc123.render.com'
+        'PORT': '5432',
     }
 }
 
