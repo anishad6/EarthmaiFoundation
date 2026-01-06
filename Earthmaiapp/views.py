@@ -179,18 +179,30 @@ def process_payment(request):
             "receipt": f"receipt_{donation.id}"  # Use donation ID as receipt identifier
         })
 
-        # Sending email
-        send_mail(
-            subject="Thank You for Your Donation",
-            message=f"Dear {request.user.username},\n\n"
-                    f"Thank you for your generous donation of ₹{amount_in_rupees}.\n"
-                    f"Your support helps us make a difference!\n\n"
-                    f"Message: {message}\n\n"
-                    "Best regards,\nYour Team",
-            from_email='nishadabhishek200027@gmail.com',
-            recipient_list=[request.user.email],
-            fail_silently=False,
-        )
+        # # Sending email
+        # send_mail(
+        #     subject="Thank You for Your Donation",
+        #     message=f"Dear {request.user.username},\n\n"
+        #             f"Thank you for your generous donation of ₹{amount_in_rupees}.\n"
+        #             f"Your support helps us make a difference!\n\n"
+        #             f"Message: {message}\n\n"
+        #             "Best regards,\nYour Team",
+        #     from_email='nishadabhishek200027@gmail.com',
+        #     recipient_list=[request.user.email],
+        #     fail_silently=False,
+        # )
+
+        try:
+            send_mail(
+                subject="Thank You for Your Donation",
+                message=message,
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[email],
+                fail_silently=True,  # IMPORTANT
+            )
+        except Exception as e:
+            print("Email error:", e)
+
 
         messages.success(request, "Thank you for your donation!")
 
